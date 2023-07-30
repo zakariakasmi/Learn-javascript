@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+    <title>Coin Flip</title>
+<body>
+
+    <button onclick="
+        coinFlip('Head');
+    ">Head</button>
+    <button onclick="
+        coinFlip('Tails');
+    ">Tails</button> 
+    <button onclick="
+            localStorage.removeItem('score');
+            console.log('The score was reset')
+    ">Reset</button>
+    <p class="resultDesc"></p>
+
+    <!-- input section -->
+    <input type="text" placeholder="Entre your name." onkeydown="
+        inputEvent(event)
+    ">
+    <button onclick="
+        inputValue();
+    ">Submit</button>
+    <p class="inputResult"></p>
+
+    <script>
+        let myResult;        
+        let result;
+        const score = JSON.parse(localStorage.getItem('score')) || {
+            wins : 0,
+            losses: 0
+        } ;
+        console.log(`Wins: ${score.wins}, Losses: ${score.losses}`);
+
+        function coinFlip(myResult){
+            const randomCoinFlip = Math.random();
+            randomCoinFlip < 0.5 ? result = 'Head' : result = 'Tails';
+
+            if (result === myResult){
+                console.log(`You win, you choose ${myResult} and computer choose ${result}`);
+                score.wins += 1;
+            } else{
+                console.log(`You lose, you choose ${myResult} and computer choose ${result}`);
+                score.losses += 1;
+            }
+            localStorage.setItem('score',JSON.stringify(score));
+            console.log(`Wins: ${score.wins}, Losses: ${score.losses}`);
+
+            document.querySelector('.resultDesc').innerHTML = `You chose: ${myResult}`;
+        }
+
+        function inputValue(){
+            let text = document.querySelector('input').value;
+            document.querySelector('.inputResult').innerHTML = `Your name is: ${text}`;
+        }
+
+        function inputEvent(event){
+            if (event.key === 'Enter'){
+                inputValue();
+            }
+        }
+
+
+    </script>
+</body>
+</html>
