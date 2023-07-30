@@ -1,0 +1,30 @@
+.amazon-btn{
+    border: none;
+    background-color: rgb(255,216,20);
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 60px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    cursor: pointer;
+}
+
+.uber-btn, 
+.gaming-btn, 
+.music-btn,
+.tech-btn{
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px 25px;
+    margin-right: 10px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.primary{
+    background-color: black;
+    color: white;
+}
+
