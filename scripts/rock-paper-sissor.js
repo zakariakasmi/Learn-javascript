@@ -128,7 +128,6 @@ document.body.addEventListener('keydown', (event) => {
     if (event.key === 'Backspace'){
 
         resetScoreMessage()
-        console.log(resetScore())
     }
 });
 
